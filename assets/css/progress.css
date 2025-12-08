@@ -1,0 +1,77 @@
+.analyzer-progress { 
+    display: block !important;
+    text-align: center;
+    font-size: 1em;
+    padding: 20px;
+    background: #fff;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0);
+}
+
+.progress-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 var(--value), #ddd 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* The percentage text in the centre */
+.progress-circle::before {
+    content: attr(data-value) '%';
+    position: absolute;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Orbiting ball effect to imply “working” */
+.progress-circle::after {
+    content: '';
+    position: absolute;
+    margin-top: 75px;
+    width: 10px;
+    height: 10px;
+    background: #007BFF;
+    border-radius: 50%;
+    animation: orbit 2s linear infinite;
+    top: 0;
+    left: 50%;
+}
+
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(75px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(75px) rotate(-360deg); }
+}
+
+.progress-text,
+.progress-text-nearly {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+/* “We’re nearly there” pulsing text */
+.progress-text-nearly {
+    animation: flash 2s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.analyzer-results { 
+    display: block;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
